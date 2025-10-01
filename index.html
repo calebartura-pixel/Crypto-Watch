@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Price Alerts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Crypto Price Alerts</h1>
+            <p class="subtitle">Set alerts for Bitcoin, Ethereum, and Dogecoin</p>
+        </header>
+
+        <div class="price-section">
+            <h2>Current Prices</h2>
+            <div class="price-cards">
+                <div class="price-card">
+                    <div class="crypto-name">Bitcoin (BTC)</div>
+                    <div class="price" id="btc-price">Loading...</div>
+                </div>
+                <div class="price-card">
+                    <div class="crypto-name">Ethereum (ETH)</div>
+                    <div class="price" id="eth-price">Loading...</div>
+                </div>
+                <div class="price-card">
+                    <div class="crypto-name">Dogecoin (DOGE)</div>
+                    <div class="price" id="doge-price">Loading...</div>
+                </div>
+            </div>
+            <div class="last-update">
+                Last updated: <span id="last-update">Never</span>
+            </div>
+        </div>
+
+        <div class="alert-form">
+            <h2>Create Alert</h2>
+            <form id="alertForm">
+                <div class="form-group">
+                    <label for="crypto-select">Cryptocurrency:</label>
+                    <select id="crypto-select" required>
+                        <option value="bitcoin">Bitcoin (BTC)</option>
+                        <option value="ethereum">Ethereum (ETH)</option>
+                        <option value="dogecoin">Dogecoin (DOGE)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="condition">Condition:</label>
+                    <select id="condition" required>
+                        <option value="above">Price goes above</option>
+                        <option value="below">Price goes below</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="target-price">Target Price (USD):</label>
+                    <input type="number" id="target-price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="delete-after-trigger">
+                        Delete alert after it triggers
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Add Alert</button>
+            </form>
+        </div>
+
+        <div class="alerts-section">
+            <h2>Active Alerts (<span id="alert-count">0</span>)</h2>
+            <div id="alerts-list" class="alerts-list">
+                <p class="no-alerts">No alerts set. Create one above!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
